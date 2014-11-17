@@ -25,7 +25,7 @@ function initialize() {
   var map = new google.maps.Map(document.getElementById('map-canvas'),
                                 mapOptions);
 
-  setMarkers(map, beaches);
+  setMarkers(map, drawPoint);
 }
 
 /**
@@ -33,12 +33,12 @@ function initialize() {
  * the order in which these markers should display on top of each
  * other.
  */
-var beaches = [
+var drawPoint = [
   ['Bondi Beach', 39.768053, -86.157489, 4],
   ['Bondi Beach', 39.754102 , -86.144314, 4],
   ['Coogee Beach', 39.754102, -86.170750, 5],
   ['Cronulla Beach', 39.754102 , -86.166458, 3],
-  ['Manly Beach', 39.754102 , -86.151009 2],
+  ['Manly Beach', 39.754102 , -86.151009, 2],
   ['Maroubra Beach', 39.746052 , -86.138134, 1]
 ];
 
@@ -71,15 +71,15 @@ function setMarkers(map, locations) {
       type: 'poly'
   };
   for (var i = 0; i < locations.length; i++) {
-    var beach = locations[i];
-    var myLatLng = new google.maps.LatLng(beach[1], beach[2]);
+    var drawPoint = locations[i];
+    var myLatLng = new google.maps.LatLng(drawPoint[1], drawPoint[2]);
     var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
         icon: image,
         shape: shape,
-        title: beach[0],
-        zIndex: beach[3]
+        title: drawPoint[0],
+        zIndex: drawPoint[3]
     });
   }
 }
